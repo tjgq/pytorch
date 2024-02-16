@@ -1,9 +1,11 @@
 import getpass
 import inspect
+import logging
 import os
 import re
 import sys
 import tempfile
+import warnings
 from os.path import abspath, dirname
 from typing import Any, Dict, Optional, Set, Type, TYPE_CHECKING, Union
 
@@ -369,6 +371,27 @@ optimize_user_defined_triton_kernels = True
 
 # If to log Dynamo compilation metrics into log files (for OSS) and Scuba tables (for fbcode).
 log_compilation_metrics = True
+
+# Reorders logging statements (prints/warnings) to construct larger graphs, as
+# dynamo will by default graph break on these. Note that there are some
+# limitations to this, such as how it does not correctly print objects that were
+# mutated after the print statement. If using a custom logging function, you can
+# add the function to `reorderable_logging_functions` to allow it to be
+# reordered.
+reorder_logs = False
+
+# A set of logging functions which can be reordered to the end of graph breaks
+reorderable_logging_functions = {
+    logging.critical,
+    logging.debug,
+    logging.error,
+    logging.exception,
+    logging.info,
+    logging.log,
+    logging.warning,
+    print,
+    warnings.warn,
+}
 
 # simulates what would happen if we didn't have support for BUILD_SET opcode,
 # used for testing
