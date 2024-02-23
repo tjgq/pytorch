@@ -724,6 +724,7 @@ class TestSingleProc(DynamoDistributedSingleProcTestCase):
 
 
     @patch.object(config, "optimize_ddp", True)
+    @patch.object(config, "optimize_ddp_lazy_compile", True)
     @unittest.skipIf(not has_triton(), "Inductor+gpu needs triton and recent GPU arch")
     def test_graph_split_inductor_transpose(self):
         assert config.optimize_ddp
