@@ -58,6 +58,8 @@ struct TORCH_API FunctionalTensorWrapper : public c10::TensorImpl {
       const FunctionalTensorWrapper* base,
       functionalization::ViewMeta meta);
 
+  explicit FunctionalTensorWrapper(const Storage& storage);
+
   // Get the underlying, actual tensor, that doesn't know anything about
   // functionalization.
   const Tensor& value() const {
@@ -325,6 +327,7 @@ std::vector<Tensor> create_functional_tensor_with_view_meta(
     ITensorListRef view_to_wrap,
     const Tensor& base,
     functionalization::ViewMeta meta);
+Tensor create_functional_tensor_from_base(const Tensor& tensor);
 
 void mutate_view_meta(const Tensor& self, functionalization::ViewMeta meta);
 
