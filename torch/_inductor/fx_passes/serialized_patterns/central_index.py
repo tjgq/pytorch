@@ -1,9 +1,24 @@
-# mypy: ignore-errors
-
 # This is an auto-generated file. Please do not modify it by hand.
 # To re-generate, run:
 # cd ~/pytorch && python
 # torchgen/fuse_attention_patterns/gen_attention_patterns.py
+from ._sfdp_cpu_inference_pattern_1 import (_sfdp_cpu_inference_pattern_1, _sfdp_cpu_inference_pattern_1_bfloat16)
+from ._sfdp_cpu_inference_pattern_2 import (_sfdp_cpu_inference_pattern_2, _sfdp_cpu_inference_pattern_2_bfloat16)
+from ._sfdp_cpu_inference_pattern_3 import (_sfdp_cpu_inference_pattern_3, _sfdp_cpu_inference_pattern_3_bfloat16)
+from ._sfdp_cpu_inference_pattern_4 import (_sfdp_cpu_inference_pattern_4, _sfdp_cpu_inference_pattern_4_bfloat16)
+from ._sfdp_cpu_inference_pattern_5 import (_sfdp_cpu_inference_pattern_5, _sfdp_cpu_inference_pattern_5_bfloat16)
+from ._sfdp_cpu_inference_pattern_6 import (_sfdp_cpu_inference_pattern_6, _sfdp_cpu_inference_pattern_6_bfloat16)
+from ._sfdp_cpu_inference_pattern_7 import (_sfdp_cpu_inference_pattern_7, _sfdp_cpu_inference_pattern_7_bfloat16)
+from ._sfdp_cpu_inference_pattern_8 import (_sfdp_cpu_inference_pattern_8, _sfdp_cpu_inference_pattern_8_bfloat16)
+from ._sfdp_cpu_inference_pattern_9 import (_sfdp_cpu_inference_pattern_9, _sfdp_cpu_inference_pattern_9_bfloat16)
+from ._sfdp_cpu_inference_pattern_10 import (_sfdp_cpu_inference_pattern_10, _sfdp_cpu_inference_pattern_10_bfloat16)
+from ._sfdp_cpu_inference_pattern_11 import (_sfdp_cpu_inference_pattern_11, _sfdp_cpu_inference_pattern_11_bfloat16)
+from ._sfdp_cpu_inference_pattern_12 import (_sfdp_cpu_inference_pattern_12, _sfdp_cpu_inference_pattern_12_bfloat16)
+from ._sfdp_cpu_inference_pattern_13 import (_sfdp_cpu_inference_pattern_13, _sfdp_cpu_inference_pattern_13_bfloat16)
+from ._sfdp_cpu_inference_pattern_14 import (_sfdp_cpu_inference_pattern_14, _sfdp_cpu_inference_pattern_14_bfloat16)
+from ._sfdp_cpu_inference_pattern_15 import (_sfdp_cpu_inference_pattern_15, _sfdp_cpu_inference_pattern_15_bfloat16)
+from ._sfdp_cpu_inference_pattern_16 import (_sfdp_cpu_inference_pattern_16, _sfdp_cpu_inference_pattern_16_bfloat16)
+from ._sfdp_cpu_inference_pattern_17 import (_sfdp_cpu_inference_pattern_17, _sfdp_cpu_inference_pattern_17_bfloat16)
 from ._sfdp_pattern_1 import (_sfdp_pattern_1_training, _sfdp_pattern_1_inference, _sfdp_pattern_1_training_half, _sfdp_pattern_1_inference_half)
 from ._sfdp_pattern_2 import (_sfdp_pattern_2_training, _sfdp_pattern_2_inference, _sfdp_pattern_2_training_half, _sfdp_pattern_2_inference_half)
 from ._sfdp_pattern_3 import (_sfdp_pattern_3_training, _sfdp_pattern_3_inference, _sfdp_pattern_3_training_half, _sfdp_pattern_3_inference_half)
@@ -23,6 +38,40 @@ from ._sfdp_pattern_16 import (_sfdp_pattern_16_training, _sfdp_pattern_16_infer
 from ._sfdp_pattern_17 import (_sfdp_pattern_17_training, _sfdp_pattern_17_inference, _sfdp_pattern_17_training_half, _sfdp_pattern_17_inference_half)
 
 central_index = {
+    '_sfdp_cpu_inference_pattern_1': _sfdp_cpu_inference_pattern_1,
+    '_sfdp_cpu_inference_pattern_2': _sfdp_cpu_inference_pattern_2,
+    '_sfdp_cpu_inference_pattern_3': _sfdp_cpu_inference_pattern_3,
+    '_sfdp_cpu_inference_pattern_4': _sfdp_cpu_inference_pattern_4,
+    '_sfdp_cpu_inference_pattern_5': _sfdp_cpu_inference_pattern_5,
+    '_sfdp_cpu_inference_pattern_6': _sfdp_cpu_inference_pattern_6,
+    '_sfdp_cpu_inference_pattern_7': _sfdp_cpu_inference_pattern_7,
+    '_sfdp_cpu_inference_pattern_8': _sfdp_cpu_inference_pattern_8,
+    '_sfdp_cpu_inference_pattern_9': _sfdp_cpu_inference_pattern_9,
+    '_sfdp_cpu_inference_pattern_10': _sfdp_cpu_inference_pattern_10,
+    '_sfdp_cpu_inference_pattern_11': _sfdp_cpu_inference_pattern_11,
+    '_sfdp_cpu_inference_pattern_12': _sfdp_cpu_inference_pattern_12,
+    '_sfdp_cpu_inference_pattern_13': _sfdp_cpu_inference_pattern_13,
+    '_sfdp_cpu_inference_pattern_14': _sfdp_cpu_inference_pattern_14,
+    '_sfdp_cpu_inference_pattern_15': _sfdp_cpu_inference_pattern_15,
+    '_sfdp_cpu_inference_pattern_16': _sfdp_cpu_inference_pattern_16,
+    '_sfdp_cpu_inference_pattern_17': _sfdp_cpu_inference_pattern_17,
+    '_sfdp_cpu_inference_pattern_1_bfloat16': _sfdp_cpu_inference_pattern_1_bfloat16,
+    '_sfdp_cpu_inference_pattern_2_bfloat16': _sfdp_cpu_inference_pattern_2_bfloat16,
+    '_sfdp_cpu_inference_pattern_3_bfloat16': _sfdp_cpu_inference_pattern_3_bfloat16,
+    '_sfdp_cpu_inference_pattern_4_bfloat16': _sfdp_cpu_inference_pattern_4_bfloat16,
+    '_sfdp_cpu_inference_pattern_5_bfloat16': _sfdp_cpu_inference_pattern_5_bfloat16,
+    '_sfdp_cpu_inference_pattern_6_bfloat16': _sfdp_cpu_inference_pattern_6_bfloat16,
+    '_sfdp_cpu_inference_pattern_7_bfloat16': _sfdp_cpu_inference_pattern_7_bfloat16,
+    '_sfdp_cpu_inference_pattern_8_bfloat16': _sfdp_cpu_inference_pattern_8_bfloat16,
+    '_sfdp_cpu_inference_pattern_9_bfloat16': _sfdp_cpu_inference_pattern_9_bfloat16,
+    '_sfdp_cpu_inference_pattern_10_bfloat16': _sfdp_cpu_inference_pattern_10_bfloat16,
+    '_sfdp_cpu_inference_pattern_11_bfloat16': _sfdp_cpu_inference_pattern_11_bfloat16,
+    '_sfdp_cpu_inference_pattern_12_bfloat16': _sfdp_cpu_inference_pattern_12_bfloat16,
+    '_sfdp_cpu_inference_pattern_13_bfloat16': _sfdp_cpu_inference_pattern_13_bfloat16,
+    '_sfdp_cpu_inference_pattern_14_bfloat16': _sfdp_cpu_inference_pattern_14_bfloat16,
+    '_sfdp_cpu_inference_pattern_15_bfloat16': _sfdp_cpu_inference_pattern_15_bfloat16,
+    '_sfdp_cpu_inference_pattern_16_bfloat16': _sfdp_cpu_inference_pattern_16_bfloat16,
+    '_sfdp_cpu_inference_pattern_17_bfloat16': _sfdp_cpu_inference_pattern_17_bfloat16,
     '_sfdp_pattern_1_training': _sfdp_pattern_1_training,
     '_sfdp_pattern_1_inference': _sfdp_pattern_1_inference,
     '_sfdp_pattern_2_training': _sfdp_pattern_2_training,

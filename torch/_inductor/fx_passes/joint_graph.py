@@ -25,13 +25,17 @@ patterns = PatternMatcherPass()
 
 
 @init_once_fakemode
-def lazy_init():
+def lazy_init(inference_with_onednn_graph=False):
     from .fuse_attention import _sfdp_init
     from .misc_patterns import _misc_patterns_init
+    from .onednn_graph_fusions import _onednn_graph_fusions_init
     from .pad_mm import _pad_mm_init
 
     _pad_mm_init()
-    _sfdp_init()
+    if inference_with_onednn_graph:
+        _onednn_graph_fusions_init()
+    else:
+        _sfdp_init()
     _misc_patterns_init()
 
 
@@ -278,11 +282,11 @@ def constant_fold_uniform_value(gm: torch.fx.GraphModule):
     remove_redundant_views(gm)
 
 
-def joint_graph_passes(graph: torch.fx.GraphModule):
+def joint_graph_passes(graph: torch.fx.GraphModule, inference_with_onednn_graph=False):
     """
     Run FX transformations on the joint forwards+backwards graph.
     """
-    lazy_init()
+    lazy_init(inference_with_onednn_graph=inference_with_onednn_graph)
     count = 0
 
     if config.joint_graph_constant_folding:

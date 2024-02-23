@@ -76,6 +76,18 @@ post_grad_graphs_log = torch._logging.getArtifactLogger(__name__, "post_grad_gra
 ALIGNMENT = 16
 
 
+# Some fusions would only work on Xeon SP processors gen 2 & above
+def is_avx512_vnni_supported():
+    if sys.platform != "linux":
+        return False
+    with open("/proc/cpuinfo", encoding="ascii") as f:
+        lines = f.read()
+    return "vnni" in lines
+
+
+IS_AVX512_VNNI_SUPPORTED = is_avx512_vnni_supported()
+
+
 @dataclasses.dataclass
 class BoxedBool:
     value: bool
@@ -1028,8 +1040,23 @@ def fw_compiler_freezing(
 ):
     from torch._inductor.freezing import convert_conv_weights_to_channels_last, freeze
 
+    # whether or not to do inference with oneDNN Graph
+    inference_with_onednn_graph = True
+    if not (
+        config.onednn_graph and torch._C._has_onednn_graph and IS_AVX512_VNNI_SUPPORTED
+    ):
+        inference_with_onednn_graph = False
+    for example_input in aot_example_inputs:
+        # all inputs must be on CPU
+        if example_input.is_cpu == False:
+            inference_with_onednn_graph = False
+            break
+
     # partition_fn won't be called
-    joint_graph_passes(aot_autograd_model)
+
+    joint_graph_passes(
+        aot_autograd_model, inference_with_onednn_graph=inference_with_onednn_graph
+    )
 
     layout_opt = GraphLowering.decide_layout_opt(aot_autograd_model, is_inference=True)
     if layout_opt:
